@@ -28,9 +28,14 @@ public class LivingThing {
             opponent.wounded(damage);
         }
     }
+
+    /**
+     * ダメージを受けた際にhitPointを減らす処理。
+     *hitPointが0以下になったら「◯◯は倒れた」とプリントするようにしている。サブクラスでどういう風にプリントするかはOverrideする際に変える。
+     * @param damage　hitPointをいくつ減らすかを決める引数
+     */
     public void wounded(int damage){
         hitPoint -= damage;
-
         if (hitPoint < 0) {
             dead = true;
             System.out.printf("%sは倒れた。\n", name);
